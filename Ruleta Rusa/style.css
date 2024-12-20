@@ -1,0 +1,80 @@
+body{
+
+    font-family: 'Press Start 2P', cursive;
+
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+
+    background-image: url('./public/img/fondo.png');
+    background-size: cover; /* El fondo se ajusta para cubrir toda la pantalla */
+    background-position: center center; /* Centra la imagen del fondo */
+    background-attachment: fixed; /* Fija el fondo, de modo que no se mueva al hacer scroll */
+    color: rgb(255, 255, 255); /* Para que el texto se vea bien sobre un fondo oscuro */
+
+}
+
+header{
+    padding: 10px;
+    background-color: rgba(73, 33, 0, 0.152);
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+main{
+    margin-top:10vh;
+    margin-bottom: 15vh;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(76, 36, 4, 0.152);
+    border-radius: 5px;
+}
+
+input{
+    padding: 10px;
+    padding-left: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+button{
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+    transition: all 5ms;
+}
+
+    button:hover{
+        cursor: pointer;
+        background-color: gray;
+    }
+
+#result{
+    margin-top: 4rem;
+    font-size: 30px;
+}
+
+#footer-body{
+    padding: 10px;
+    text-align: center;
+    font-size: 10px;
+    background-color: rgba(73, 33, 0, 0.49);
+    border-radius: 10px;
+}

@@ -1,0 +1,91 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif,;
+
+   
+}
+body{
+    background-image:url("IMG/una-taza-de-javascript.png");
+}
+
+.container{
+    margin: auto;
+    margin-top: 5vh;
+    max-width: 420px;
+    height: 100vh;
+    max-height: 745px;
+    background-color:rgba(92, 175, 193, 0.817);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 3px solid black;
+}
+
+h1{
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+}
+
+#resoult{
+    text-align: center;  
+}
+
+.imgresoult{
+    width: 20%;
+}
+
+#text{
+    margin: 10px;
+    font-size: 30px;
+}
+
+
+#group-buttons{
+    display:flex;
+    width: 100%;
+
+}
+
+#group-buttons >button >img{
+    width: 100%;
+
+}
+
+img{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.finish-text{
+    margin: 10px;
+    font-size: 20px;
+    text-align: center; 
+}
+
+footer{
+    padding: 10px;
+    display: grid;
+    justify-content: center;
+}
+
+    footer button{
+        margin: 5px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px; 
+        background-color: #2200ff; 
+        color: white;
+        font-size: 18px; 
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease; 
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); 
+    }
+
+    footer button:hover{
+        background-color: #11008f; 
+        transform: scale(1.05); 
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); 
+    }

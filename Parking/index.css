@@ -1,0 +1,75 @@
+body{
+    background-color: rgba(128, 128, 128, 0.774);
+   margin: 0;
+}
+header{
+    width: 99.3%;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-areas: "header header " ;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.placeParking{
+    background-color: rgb(128, 128, 128);
+    margin: 20px;
+    width: auto;
+    min-height: auto;
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    gap: 10px;
+    justify-content: space-evenly;
+}
+.card-parking{
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 58, 57);
+    height: min-content;
+    width: min-content;
+    border-left: dashed rgb(255, 255, 0);
+    border-right: dashed rgb(255, 255, 0);
+    display: grid;
+    justify-items: center;
+}
+.card-parking button{
+    margin: 10px;
+    padding: 5px;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    background-color: rgb(128, 128, 128);
+    border: 3px solid rgb(128, 128, 128);
+    cursor: pointer;
+}
+    .card-parking button:hover  {
+        background-color: rgb(101, 101, 101);
+        border: 3px solid rgb(101, 101, 101);
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.671);
+
+    }
+
+    .cardPago{
+        width: 25rem;
+        height: 15rem;
+        padding: 1rem;
+        background-color: rgb(255, 255, 255);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        justify-items: center;
+        box-shadow: 10px 5px 1px 1px rgba(0, 0, 0, 0.219);
+    }
+
+    .cardPago input{
+        width: 12rem;
+        height: 3rem;
+    }
+    .cardPago button{
+        margin: 1rem;
+        width: 8rem;
+        height: 3rem;
+    }
