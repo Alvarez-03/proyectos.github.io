@@ -1,16 +1,50 @@
+
 body{
     background-color: rgba(128, 128, 128, 0.774);
-   margin: 0;
+    margin: 0;
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
 }
 header{
-    width: 99.3%;
     padding: 5px;
     background-color: rgb(255, 255, 255);
     display: grid;
-    grid-template-areas: "header header " ;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-content: space-evenly;
+
+    box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.671);
 }
+
+header h1{
+    text-align: center;
+}
+
+header input{
+    border: none;
+    font-size: 15px;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    text-align: center;
+    padding: 5px;
+    outline: none;
+}
+
+header button{
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    background-color: rgb(0, 0, 0) ;
+    color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 1px 1px rgba(194, 194, 194, 0.671);
+    margin: 5px;
+}
+
+    header button:hover {
+        cursor: pointer;
+        background-color: rgb(194, 194, 194) ;
+        color: black;
+    }
+
 .placeParking{
     background-color: rgb(128, 128, 128);
     margin: 20px;
@@ -20,6 +54,9 @@ header{
     grid-template-columns: repeat(5,auto);
     gap: 10px;
     justify-content: space-evenly;
+}
+#name_zone{
+    text-align: center;
 }
 .card-parking{
     padding: 1rem;
@@ -36,23 +73,21 @@ header{
 }
 .card-parking button{
     margin: 10px;
-    padding: 5px;
-    font-size: 1.5rem;
-    color: rgb(255, 255, 255);
-    background-color: rgb(128, 128, 128);
-    border: 3px solid rgb(128, 128, 128);
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 1px 1px 1px 1px rgb(128, 128, 128);
+    border: none;
     cursor: pointer;
 }
-    .card-parking button:hover  {
-        background-color: rgb(101, 101, 101);
-        border: 3px solid rgb(101, 101, 101);
-        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.671);
-
+    .card-parking button:hover  {       
+        background-color: rgb(5, 90, 0);
     }
 
     .cardPago{
         width: 25rem;
-        height: 15rem;
+        height: max-content;
         padding: 1rem;
         background-color: rgb(255, 255, 255);
         position: fixed;
@@ -67,9 +102,37 @@ header{
     .cardPago input{
         width: 12rem;
         height: 3rem;
+        margin: 10px;
     }
     .cardPago button{
         margin: 1rem;
         width: 8rem;
         height: 3rem;
+    }
+
+footer{
+    background-color: white;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 10vh;
+
+}
+
+footer button{
+    text-align: center;
+    width: 30vh;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px;
+    box-shadow: 10px 5px 1px 1px rgba(0, 0, 0, 0.219);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+    footer button:hover{
+        background-color: white;
+        color: black;
     }
