@@ -26,8 +26,7 @@ function asignacion() {
 
         let icoParking = document.createElement("i");
         icoParking.className = "fa-sharp fa-solid fa-square-parking fa-7x";
-        icoParking.style.color = "#0dff00";
-        icoParking.style.fontSize = "7em";
+        icoParking.style.color = "rgb(5, 90, 0)";
 
         let placatext= document.createElement("h4")
         placatext.id= `placa${name_zone}-${numBahias}`
@@ -111,7 +110,9 @@ function buscar_veh(){
      vehiculoEncontrado = Estacionamiento.find((vehiculo)=>vehiculo.Placa == Bplaca && vehiculo.hora_salida == "");
     if(vehiculoEncontrado){
         alert(`vehiculo Encontrado ${vehiculoEncontrado.Placa} ${vehiculoEncontrado.bahia} ${vehiculoEncontrado.zona}`)
-    } 
+    }else{
+        alert(`Vehiculo no encontrado en estacionamiento`)
+    }
 
 
 }
@@ -144,7 +145,7 @@ function pagoParking(numPlaca, buttonPark, icoParking, placatext) {
 
     // Liberar la plaza
     placatext.textContent = `----`;
-    icoParking.style.color = "#0dff00";
+    icoParking.style.color = "rgb(5, 90, 0)";
     buttonPark.textContent = "Asignar";
     buttonPark.onclick = function () {
         plazaOcupada(icoParking, buttonPark, vehiculo.bahia, vehiculo.zona, placatext.id);
