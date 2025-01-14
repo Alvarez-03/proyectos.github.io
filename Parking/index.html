@@ -11,12 +11,12 @@
 </head>
 <body>
     <header>
-        <h1>Parking 24/7</h1>     
+        <h1> <i class="fa-solid fa-car"></i> Parking 24/7</h1>     
 
             <div>
-                <input type="number" id="bahias_num" placeholder="Ingrese numero bahias"> 
-                <input type="text" placeholder="Nombre Estacionamiento" id="name_zone"> 
-                <button onclick="asignacion()" >Crear bahias</button> 
+                <input type="number" id="bahias_num" placeholder="Ingrese numero bahias" > 
+                <input type="text" placeholder="Nombre Estacionamiento" id="name_zone" > 
+                <button onclick="crear_zonas()" >Crear bahias</button> 
             </div>           
     
             <div>
@@ -24,16 +24,41 @@
                 <input type="text" placeholder="Placa Vehiculo" id="buscador_veh"> 
                 <button onclick="buscar_veh()" >Buscar Vehiculo</button> 
             </div> 
+
+            
         
     </header>
+
     
-    <main id="plazasParking">
+    <main id="contenido">
+
+        <nav id="container_nav">  
+            
+            <div class="content_nav">
+                <button onclick="addtarifas()">Tarifas</button>
+                <button onclick="membresias()">Membresias</button>
+            </div>
+            
+            
+            <div class="content_nav">
+                <p id="bahiasDispo"> <i class="fa-solid fa-square-parking"></i> Espacios Disponibles: 0 </p>
+            
+                <p id="ingresostext"> <i class="fa-solid fa-money-bill-trend-up"></i> Ingresos: $0 </p>
+    
+                <p id="tarifatext"><i class="fa-solid fa-stopwatch"></i>  Cobro de tiempo de tarifa: 30</p>
+            </div>
+        </nav>
+
+        <section id="plazasParking">
+
+                
+        </section>
 
     </main>
 
    <footer>
     <p>
-        Version: 1.2 / 2025<br>
+        Version: 1.3 / 2025<br>
         © Cristian Alvarez <br>
         App web | Parking 24/7 <br>
         
