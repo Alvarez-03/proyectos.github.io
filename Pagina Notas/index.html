@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NOTE</title>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet">
+        <script src="index.js"></script>
+        <link rel="icon" type="image/png" href="img/note-icon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="index.js">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <header id="header_body">
+            <div>
+                <h1><i class="fa-solid fa-note-sticky"></i> Organizador de Tareas</h1>
+                <p>Divide Tu día por secciones y organiza tus tareas </p>
+            </div>
+
+            <button onclick="spanAddSeccion()" title=""> 
+                <i class="fa-regular fa-square-plus"></i> 
+                Nueva Sección
+            </button>
+
+        </header >
+
+        <main id="content-principal">
+            <div id="container">
+    
+            </div>
+            <section id="seccion_textarea">
+                <h3><i class="fa-solid fa-pen-clip"></i> Notas Generales</h3>
+                <textarea name="" id="notaGen"></textarea>
+                <button onclick="saveNotasGen()"><i class="fa-regular fa-floppy-disk"></i> Guardar</button>
+            </section>
+        </main>
+
+        <footer id="footer_page">
+            <p>© Cristian Alvarez</p>
+            <p>App web | NOTE</p>
+        </footer>
+       
+
+    </body>
+</html>
