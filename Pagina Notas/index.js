@@ -121,7 +121,14 @@ function reloadpages(){
     //obtener mensaje de notas generales
     textarea=document.getElementById("notaGen")
     mensajeGeneral=localStorage.getItem("notaGen")
-    textarea.textContent=`${mensajeGeneral}`
+    if(mensajeGeneral==null){
+        console.log(mensajeGeneral)
+        textarea.placeholder=`Tus notas aqui!`
+
+    }else{
+        mensajeGeneral=localStorage.getItem("notaGen")
+        textarea.textContent=`${mensajeGeneral}`
+    }
 
     localStorage.setItem("tareas",JSON.stringify(list_tareas))
 
