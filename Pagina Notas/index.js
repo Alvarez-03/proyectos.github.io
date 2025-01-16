@@ -353,7 +353,6 @@ function AddTarea(card,tarea){
                 if(mensaje.style.textDecoration === "none"){
                     mensaje.style.textDecoration= "line-through";
                     Tarea.realizada="True";
-                    alert(Tarea.realizada)
         
                     localStorage.setItem("tareas",JSON.stringify(list_tareas))
                 }else{
