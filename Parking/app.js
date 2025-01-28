@@ -285,11 +285,11 @@ function spanFactura(vehiculo, tarifa_pagar){
 }
 
 //calcular tarifa de 1hora
-function tarifa1hr(total_pagar, tarifa_pagar, horas, segundos){
+function tarifa1hr(total_pagar, tarifa_pagar, horas){
     if(horas == 0){
        total_pagar=tarifa_pagar;
     }else if(horas >= 1){
-        total_pagar= segundos*tarifa_pagar;
+        total_pagar= horas*tarifa_pagar;
     }
     
     return total_pagar

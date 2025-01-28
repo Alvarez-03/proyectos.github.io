@@ -108,3 +108,14 @@ main a {
     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4); 
 }
 
+@media (max-width: 740px) {
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+    }
+    .card{
+        width: 40vh;
+    }
+  }
