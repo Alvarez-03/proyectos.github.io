@@ -478,15 +478,15 @@ function SpanAddTarea(card,idcard){
             clearSpan(spanPlaca)
         }else{
 
-            tarea=list_tareas.push({
+            newTarea={
                 tarea:`${mensaje}`,
                 seccion:`${idcard}`,
                 realizada:`False`,
                 fecha:`${fecha}`,
                 hora:`${hora}`
-            })
-
-            AddTarea(tarea)
+            }
+            list_tareas.push(newTarea)
+            AddTarea(newTarea,card)
 
             localStorage.setItem("tareas",JSON.stringify(list_tareas))
             console.table(list_tareas)
@@ -588,13 +588,14 @@ function SpanEdtTarea(contentTarea,tarea,card){
 
 }
 //para agregar una tarea 
-function AddTarea(tarea){
+function AddTarea(tarea,card){
 
     const contentTarea=document.createElement("div")
     contentTarea.className="content_tareas"
 
     const mensaje= document.createElement('p')
-    mensaje.textContent=tarea;
+    console.log(tarea.tarea)
+    mensaje.textContent=tarea.tarea;
     mensaje.style.textDecoration= "none";
 
     contentTarea.appendChild(mensaje)
