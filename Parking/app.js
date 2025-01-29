@@ -39,7 +39,7 @@ function crear_zonas() {
 
         let cardParking = document.createElement("div");
         cardParking.className = "card-parking";
-        cardParking.id = `${name_zone}-${numBahias}`
+        cardParking.id = `${name_zone}-parking-${numBahias}`
 
         let numParking = document.createElement("h3");
         numParking.textContent = numBahias;
@@ -53,15 +53,20 @@ function crear_zonas() {
         placatext.textContent= "----"
         placatext.style.textAlign= "center"
 
+        let TiempoText= document.createElement("h5")
+        TiempoText.id=''
+        TiempoText.innerHTML=`Ingreso: <br> 00:00:00`
+
         let buttonPark = document.createElement("button");
         buttonPark.textContent = "Asignar";
         buttonPark.onclick = function () {
-            plazaOcupada(icoParking,buttonPark, `parking-${numBahias}`, name_zone, `placa${name_zone}-${numBahias}` );
+            plazaOcupada(icoParking,buttonPark, `parking-${numBahias}`, name_zone, placatext, TiempoText );
         };
 
         cardParking.appendChild(numParking);
         cardParking.appendChild(icoParking);
         cardParking.appendChild(placatext);
+        cardParking.appendChild(TiempoText);
         cardParking.appendChild(buttonPark);
 
       
@@ -69,9 +74,8 @@ function crear_zonas() {
     }
 }
 
-function plazaOcupada(icoParking, buttonPark, idbahia, name_zone, placaVeh) {
+function plazaOcupada(icoParking, buttonPark, idbahia, name_zone, placatext, TiempoText) {
     document.body.appendChild(spanPlaca);
-    let placatext = document.getElementById(`${placaVeh}`);
     spanPlaca.id = "card-pago";
     spanPlaca.className = "cardPago";
 
@@ -123,7 +127,7 @@ function plazaOcupada(icoParking, buttonPark, idbahia, name_zone, placaVeh) {
         }
 
         // Agregar el vehículo al estacionamiento
-        Estacionamiento.push({
+        newVehiculo= {
             tipo_Vehiculo: `${vehiculo}`,
             Placa: `${numPlaca}`,
             bahia: `${idbahia}`,
@@ -132,13 +136,20 @@ function plazaOcupada(icoParking, buttonPark, idbahia, name_zone, placaVeh) {
             hora_salida: "",
             entrada: Date.now(), //toma la entrada en milisegundos
             salida:``,
-        });
+        };
+
+        Estacionamiento.push(newVehiculo)
+
+
 
         icoParking.style.color = "rgb(255, 0, 0)";
         buttonPark.textContent = "Pagar";
         buttonPark.onclick = function () {
             pagoParking(numPlaca, buttonPark, icoParking, placatext); 
         };
+
+        TiempoText.innerHTML=`Ingreso: <br>${newVehiculo.hora_entrada}`
+
 
         const textbahiasdispo= document.getElementById('bahiasDispo');
         cantBahias= cantBahias-1;
@@ -166,7 +177,9 @@ function buscar_veh(){
     Bplaca= document.getElementById('buscador_veh').value;
      vehiculoEncontrado = Estacionamiento.find((vehiculo)=>vehiculo.Placa == Bplaca && vehiculo.hora_salida == "");
     if(vehiculoEncontrado){
-        alert(`vehiculo Encontrado ${vehiculoEncontrado.Placa} ${vehiculoEncontrado.bahia} ${vehiculoEncontrado.zona}`)
+        alert(`vehiculo Encontrado`)
+        console.log(`${vehiculoEncontrado.zona}-${vehiculoEncontrado.bahia}`)
+        document.getElementById(`${vehiculoEncontrado.zona}-${vehiculoEncontrado.bahia}`).scrollIntoView({behavior: 'smooth'})
     }else{
         alert(`Vehiculo no encontrado en estacionamiento`)
     }

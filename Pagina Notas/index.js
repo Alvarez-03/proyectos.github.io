@@ -56,16 +56,16 @@ function cargarSeccionesyTareas(){
         card.className="seccion"
         const idcard= card.id=`seccion_${name_seccion}`
 
-        headerCard= document.createElement('header') // encabezado donde va nombre de la seccion y botones
+        const headerCard= document.createElement('header') // encabezado donde va nombre de la seccion y botones
         headerCard.className="seccion_header"
 
-        h2_header= document.createElement('h2')
+        const h2_header= document.createElement('h2')
         h2_header.textContent=`${name_seccion}`
         headerCard.appendChild(h2_header)
 
         content_btn= document.createElement("div") //contenedor de los botones
 
-        btnadd=document.createElement('button')
+        const btnadd=document.createElement('button')
         btnadd.innerHTML=`<i class="fa-solid fa-plus"></i>`
         btnadd.id="btnadd"
         btnadd.title="Crear tarea"
@@ -74,7 +74,7 @@ function cargarSeccionesyTareas(){
         }
         content_btn.appendChild(btnadd)
 
-        btnedt=document.createElement('button')
+        const btnedt=document.createElement('button')
         btnedt.innerHTML='<i class="fa-solid fa-pen-to-square"></i>'
         btnedt.id='btnEdtSeccion'
         btnedt.title='Editar Seccion'
@@ -84,7 +84,7 @@ function cargarSeccionesyTareas(){
             
         content_btn.appendChild(btnedt)
 
-        btnelm= document.createElement("button")
+        const btnelm= document.createElement("button")
         btnelm.innerHTML=`<i class="fa-solid fa-trash"></i></i>`
         btnelm.id='btnelm'
         btnelm.title="Eliminar seccion"
@@ -333,6 +333,8 @@ function newSeccion (){
 //editar nombre de una seccion
 function edtSeccion(h2,nombreSeccion,btnsection){
 
+    console.log(h2, nombreSeccion, btnsection )
+
     spanPlaca= document.createElement("div")
     spanPlaca.id = "spanEdtSeccion";
     spanPlaca.className = "Span";
@@ -361,31 +363,27 @@ function edtSeccion(h2,nombreSeccion,btnsection){
     input.value=nombreSeccion
 
     let buttonAdd= document.createElement("button")
-    buttonAdd.textContent="Crear"
+    buttonAdd.textContent="Editar"
     buttonAdd.onclick= function(){
         h2.textContent=input.value;
-
         list_secciones=list_secciones.map((seccion)=>{
             if(seccion === nombreSeccion){
-                seccion=input.value
+                NewNombreSeccion=input.value
+                btnsection.id = NewNombreSeccion; // Actualizar id del botón
+                btnsection.textContent =NewNombreSeccion;
 
-                //cambia el contenido del boton correspondiente del aside
-                //nuevo nombre de la seccion
-                console.log(seccion)
-                btnsection.id=seccion
-                btnsection.className='btnsection'
-                btnsection.textContent= seccion
-
-                return seccion
+                return NewNombreSeccion;
             }
+            return seccion;
         })
         console.log(list_secciones)
 
-        list_tareas.forEach((tarea)=>{
+        list_tareas =list_tareas.map((tarea)=>{
             if(tarea.seccion === `seccion_${nombreSeccion}`){
                 
                 tarea.seccion=`seccion_${input.value}`
             }
+            return tarea
         })
 
 
@@ -488,7 +486,7 @@ function SpanAddTarea(card,idcard){
                 hora:`${hora}`
             })
 
-            AddTarea(card,mensaje,fecha,hora)
+            AddTarea(tarea)
 
             localStorage.setItem("tareas",JSON.stringify(list_tareas))
             console.table(list_tareas)
@@ -540,6 +538,16 @@ function SpanEdtTarea(contentTarea,tarea,card){
     inputTarea.id="inputNote"
     inputTarea.value=tarea.tarea;
 
+    const inputfecha=document.createElement('input')
+    inputfecha.type='date'
+    inputfecha.id='fechaTarea'
+    inputfecha.value= tarea.fecha
+
+    const inputHora=document.createElement('input')
+    inputHora.type='time'
+    inputHora.id='horaTarea'
+    inputHora.value= tarea.hora
+
     const buttonAdd= document.createElement("button")
     buttonAdd.textContent="Crear"
     buttonAdd.onclick= function(){
@@ -567,6 +575,8 @@ function SpanEdtTarea(contentTarea,tarea,card){
     
     spanPlaca.appendChild(headerSpan)
     spanPlaca.appendChild(inputTarea)
+    spanPlaca.appendChild(inputfecha)
+    spanPlaca.appendChild(inputHora)
     spanPlaca.appendChild(buttonAdd)
 
 
@@ -578,7 +588,7 @@ function SpanEdtTarea(contentTarea,tarea,card){
 
 }
 //para agregar una tarea 
-function AddTarea(card,tarea,fecha,hora){
+function AddTarea(tarea){
 
     const contentTarea=document.createElement("div")
     contentTarea.className="content_tareas"
@@ -592,9 +602,9 @@ function AddTarea(card,tarea,fecha,hora){
     const contentBTN=document.createElement('div')
     contentBTN.className='content_buttons'
 
-    if(fecha !=="" || hora !==""){
+    if(tarea.fecha !=="" || tarea.hora !==""){
         const fechah4= document.createElement('h4')
-        fechah4.innerHTML=`<i class="fa-regular fa-clock"></i> ${fecha} ${hora}`
+        fechah4.innerHTML=`<i class="fa-regular fa-clock"></i> ${tarea.fecha} ${tarea.hora}`
         fechah4.id='fecha-tarea'
         contentTarea.appendChild(fechah4)
     }
