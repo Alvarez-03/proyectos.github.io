@@ -31,7 +31,6 @@ function reloadpages(){
     })
 
     if(mensajeGeneral==null || mensajeGeneral=='' ){
-        console.log(mensajeGeneral)
         textarea.placeholder=`Tus notas aqui!`
 
     }else{
@@ -511,6 +510,7 @@ function SpanAddTarea(card,idcard){
 
 //para editar una tarea
 function SpanEdtTarea(contentTarea,tarea,card){
+    console.log(card)
 
     const spanPlaca= document.createElement("div")
     spanPlaca.id = "spanAddTarea";
@@ -553,6 +553,8 @@ function SpanEdtTarea(contentTarea,tarea,card){
     buttonAdd.onclick= function(){
 
         const mensaje= inputTarea.value;
+        const hora= inputHora.value;
+        const fecha= inputfecha.value;
 
         if(mensaje==""){
             alert("Ingrese una tarea")
@@ -560,11 +562,14 @@ function SpanEdtTarea(contentTarea,tarea,card){
         }else{
 
             tarea.tarea= mensaje
+            tarea.fecha= hora
+            tarea.hora= fecha
+
             contentTarea.remove()
 
+            AddTarea(tarea,card)
 
-            AddTarea(card,mensaje)
-
+            console.table(list_tareas)
             localStorage.setItem("tareas",JSON.stringify(list_tareas))
             console.table(list_tareas)
             clearSpan(spanPlaca)
@@ -590,11 +595,11 @@ function SpanEdtTarea(contentTarea,tarea,card){
 //para agregar una tarea 
 function AddTarea(tarea,card){
 
+    console.log(card)
     const contentTarea=document.createElement("div")
     contentTarea.className="content_tareas"
 
     const mensaje= document.createElement('p')
-    console.log(tarea.tarea)
     mensaje.textContent=tarea.tarea;
     mensaje.style.textDecoration= "none";
 
